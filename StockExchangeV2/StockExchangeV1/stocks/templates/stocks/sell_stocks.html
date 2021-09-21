@@ -1,0 +1,27 @@
+{% extends 'stocks/base.html' %}
+
+{% block content %}
+ <h2>Sell stock</h2>
+ <p></p>
+  <p>  </p>
+  <h4> share id: {{share_info.0}} available quantity: {{share_info.1}}</h4>
+
+  <form method="post">{% csrf_token %}
+
+    {{sell_form.as_p}}
+
+    <button type="submit"> Go </button>
+
+
+  </form>
+  {% for e in error%}
+
+    <p style='color:red'>-> {{e}}</p>
+
+  {% endfor %}
+
+
+
+
+
+{% endblock %}

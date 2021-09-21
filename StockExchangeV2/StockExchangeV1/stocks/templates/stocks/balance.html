@@ -1,0 +1,20 @@
+{% extends 'stocks/base.html' %}
+
+{% block content %}
+ <h2>ADD BALANCE</h2>
+ <p></p>
+  <h3>Yout Current Balance is: {{current_balance}}</h3>
+
+  <form method="post">{% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit"> Go </button>
+  </form>
+
+
+
+
+
+
+{% endblock %}

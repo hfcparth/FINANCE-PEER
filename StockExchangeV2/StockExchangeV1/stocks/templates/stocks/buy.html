@@ -1,0 +1,28 @@
+{% extends 'stocks/base.html' %}
+
+{% block content %}
+ <h2>Buy stock</h2>
+ <p></p>
+  <h4>Yout Current Balance is: {{buyer.user_balance}}</h4>
+  <p>  </p>
+  <h4> company name:{{auction.share_id.company_name}} available quantity:{{auction.quantity}} price: {{auction.sell_value}}</h6>
+
+  <form method="post">{% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit"> Go </button>
+
+
+  </form>
+  {% for e in error%}
+
+    <p style='color:red'>-> {{e}}</p>
+
+  {% endfor %}
+
+
+
+
+
+{% endblock %}

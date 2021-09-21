@@ -1,0 +1,40 @@
+{% extends 'stocks/base.html' %}
+
+{% block content %}
+ <h2>The auction lists</h2>
+<p></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Company name</th>
+      <th scope="col">sell value</th>
+      <th scope="col">quantity</th>
+      <th scope="col">seller name</th>
+      <th scope="col">            </th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for auction in auction_list%}
+
+    <tr>
+      <th scope="row">{{ auction.id }}</th>
+      <td>{{ auction.share_id.company_name }}</td>
+      <td>{{ auction.sell_value }}</td>
+      <td>{{ auction.quantity }}</td>
+      <td>{{ auction.seller.first_name }}</td>
+      <td><a href="http://127.0.0.1:8000/stocks/buy_stock/{{auction.id}}/"> BUY </a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+
+{% endblock %}

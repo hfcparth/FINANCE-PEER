@@ -1,0 +1,184 @@
+{% extends 'stocks/base.html' %}
+
+{% block content %}
+
+ <h3>Here is infomation regarding your Stocks</h3>
+ <p></p>
+ <h4>Buy Orders</h4>
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Company name</th>
+      <th scope="col">Share id</th>
+      <th scope="col">buy value</th>
+      <th scope="col">quantity</th>
+      <th scope="col">date</th>>
+
+    </tr>
+  </thead>
+
+  <tbody>
+
+  {% for usb in user_buy %}
+    <tr>
+      <th scope="row">{{ usb.id }}</th>
+      <td>{{ usb.share_id.company_name }}</td>
+      <td>{{ usb.share_id.share_id }}</td>
+      <td>{{ usb.buy_value }}</td>
+      <td>{{ usb.quantity }}</td>
+      <td>{{ usb.timestamp }}</td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+  </table>
+
+  <p></p>
+
+
+    <h4>Sell Orders</h4>
+    <table class="table">
+     <thead>
+       <tr>
+         <th scope="col">id</th>
+         <th scope="col">Company name</th>
+         <th scope="col">Share id</th>
+         <th scope="col">sell value</th>
+         <th scope="col">quantity</th>
+         <th scope="col">date</th>>
+
+       </tr>
+     </thead>
+
+     <tbody>
+
+       {% for uss in user_sell %}
+
+       <tr>
+         <th scope="row">{{ uss.id }}</th>
+         <td>{{ uss.share_id.company_name }}</td>
+         <td>{{ uss.share_id.share_id }}</td>
+         <td>{{ uss.buy_value }}</td>
+         <td>{{ uss.quantity }}</td>
+         <td>{{ uss.timestamp }}</td>
+       </tr>
+
+       {% endfor %}
+
+       </tbody>
+
+       </table>
+
+
+       <h4>Total Buy Orders</h4>
+       <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Share id</th>
+            <th scope="col">Company name</th>
+            <th scope="col">quantity</th>
+            <th scope="col">cost</th>>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+          {% for i in info_buy %}
+
+          <tr>
+            <th scope="row">{{ i.0 }}</th>
+            <td>          </td>
+            <td>{{ i.1 }}</td>
+            <td>{{ i.2 }}</td>
+          </tr>
+
+          {% endfor %}
+
+          </tbody>
+
+          </table>
+
+
+        <h4>Total Sell Orders</h4>
+          <table class="table">
+           <thead>
+             <tr>
+               <th scope="col">Share id</th>
+               <th scope="col">Company name</th>
+               <th scope="col">quantity</th>
+               <th scope="col">cost</th>>
+
+             </tr>
+           </thead>
+
+           <tbody>
+
+             {% for i in info_sell %}
+
+             <tr>
+               <th scope="row">{{ i.0 }}</th>
+               <td>          </td>
+               <td>{{ i.1 }}</td>
+               <td>{{ i.2 }}</td>
+             </tr>
+
+             {% endfor %}
+
+             </tbody>
+
+             </table>
+
+
+        <h4>Total net Stocks</h4>
+             <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Share id</th>
+                  <th scope="col">Company name</th>
+                  <th scope="col">quantity</th>
+                  <th scope="col">cost</th>>
+                  <th scope="col">             </th>>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                {% for i in info_net %}
+
+                <tr>
+                  <th scope="row">{{ i.0 }}</th>
+                  <td>          </td>
+                  <td>{{ i.1 }}</td>
+                  <td>{{ i.2 }}</td>
+                  <td><a href="http://127.0.0.1:8000/stocks/sell_stock/{{i.0}}/"> SELL </a></td>
+                </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+                </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
